@@ -1,7 +1,18 @@
-import Bhagat from "./Bhagat";
+import React, { useRef } from "react";
 
-function Car() {
-  return <Bhagat  name='Rahul Gangwar'   city='Uttrakhand'/>
+function InputFocusExample() {
+  const inputRef = useRef(null); // 1️⃣ useRef से reference बनाया
+
+  function handleFocus() {
+    inputRef.current.focus(); // 2️⃣ current से input को access किया
+  }
+
+  return (
+    <div>
+      <input ref={inputRef} type="text" placeholder="Type something..." />
+      <button onClick={handleFocus}>Focus Input</button>
+    </div>
+  );
 }
 
-export default Car;
+export default InputFocusExample;
